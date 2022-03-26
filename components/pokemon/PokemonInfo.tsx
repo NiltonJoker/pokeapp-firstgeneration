@@ -12,7 +12,7 @@ export const PokemonInfo: FC<Props> = ({ pokemon }) => {
   return (
     <Grid xs={12} sm={8}>
       <Card>
-        <Card.Header css={{ display: "flex", justifyContent: "space-between" }}>
+        <Card.Header css={{ display: "flex", justifyContent: "space-between", flexWrap: 'wrap' }}>
           <Text h1 transform="capitalize">
             {pokemon.name}
           </Text>
