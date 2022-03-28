@@ -1,9 +1,9 @@
 import { GetStaticProps, NextPage, GetStaticPaths } from "next";
-import { pokeApi } from "../../api";
 import { Layout } from "../../components/layouts";
 import { PokemonDetail } from "../../components/pokemon";
 import { Pokemon } from "../../interfaces";
 import { capitalize } from "../../utils";
+import { getPokemonInfo } from '../../utils/getPokemonInfo';
 
 interface Props {
   pokemon: Pokemon;
@@ -31,13 +31,12 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
+ 
   const { id } = params as { id: string };
-
-  const { data } = await pokeApi.get<Pokemon>(`/pokemon/${id}`);
 
   return {
     props: {
-      pokemon: data,
+      pokemon: await getPokemonInfo(id),
     },
   };
 };
