@@ -9,7 +9,7 @@ export const Navbar = () => {
   const { theme } = useTheme();
 
   const { dark, toggleDark } = useContext(ThemeContext);
-console.log(dark);
+
   return (
     <div
       style={{

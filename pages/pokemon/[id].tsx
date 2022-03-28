@@ -3,6 +3,7 @@ import { pokeApi } from "../../api";
 import { Layout } from "../../components/layouts";
 import { PokemonDetail } from "../../components/pokemon";
 import { Pokemon } from "../../interfaces";
+import { capitalize } from "../../utils";
 
 interface Props {
   pokemon: Pokemon;
@@ -10,7 +11,7 @@ interface Props {
 
 const PokemonPage: NextPage<Props> = ({ pokemon }) => {
   return (
-    <Layout title="Algun Pokemon">
+    <Layout title={ capitalize(pokemon.name) }>
       <PokemonDetail pokemon={pokemon} />
     </Layout>
   );
